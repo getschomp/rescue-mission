@@ -7,6 +7,6 @@ class Answer < ActiveRecord::Base
 
   validates :answer,
     presence: true,
-    length: {minimum => 50}
+    length: {:minimum => 50}
 
 end

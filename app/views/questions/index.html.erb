@@ -1,5 +1,16 @@
 <h1>Questions in Space </h1>
+<div class="question_block">
 <% @questions.each do |question| %>
-      <h3><%= question.title %></h5>
-      <h5><%= question.description %></h5>
+      <div>
+      <h3>Question Title: <%= question.title %></h5>
+      <h5>Question Descriiption:<%= question.description %></h5>
+          User Name: <%= question.user.name %>
+        </div>
+      <% question.answers.each do |answer| %>
+        <div>
+        <li> User: <%= answer.user.name %></li>
+        <li> Answer: <%= answer.answer %></li>
+        </div>
+        <% end %>
+    </div>
 <% end %>
