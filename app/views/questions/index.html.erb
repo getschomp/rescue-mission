@@ -2,13 +2,13 @@
 <div class="question_block">
 <% @questions.each do |question| %>
       <div>
-      <h3>Question Title: <%= question.title %></h5>
+      <h3> <a href= "questions/<%= question.id %>" > Question Title: <%= question.title %></a></h5>
       <h5>Question Descriiption:<%= question.description %></h5>
-          User Name: <%= question.user.name %>
+          The user who asked the question is: <%= question.user.name %>
         </div>
       <% question.answers.each do |answer| %>
         <div>
-        <li> User: <%= answer.user.name %></li>
+        <li> The user who answered the question is: <%= answer.user.name %></li>
         <li> Answer: <%= answer.answer %></li>
         </div>
         <% end %>

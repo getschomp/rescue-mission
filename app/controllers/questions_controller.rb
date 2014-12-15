@@ -4,7 +4,8 @@ class QuestionsController < ActionController::Base
   end
 
   def show
-
+    id = params[:id]
+    @question = Question.find(id)
   end
 
   def edit
