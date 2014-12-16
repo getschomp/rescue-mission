@@ -1,16 +1,34 @@
-<h1>Questions in Space </h1>
-<div class="question_block">
-<% @questions.each do |question| %>
-      <div>
-      <h3> <a href= "questions/<%= question.id %>" > Question Title: <%= question.title %></a></h5>
-      <h5>Question Descriiption:<%= question.description %></h5>
-          The user who asked the question is: <%= question.user.name %>
-        </div>
-      <% question.answers.each do |answer| %>
-        <div>
-        <li> The user who answered the question is: <%= answer.user.name %></li>
-        <li> Answer: <%= answer.answer %></li>
-        </div>
-        <% end %>
+<div class="container">
+  <h1>SpaceOverflow </h1>
+    <div class="nav">
+      <a href="questions/new">POST</a>
+      <a href="questions/destory">DELETE</a>
+      <a href="questions/">Update</a>
     </div>
-<% end %>
+  <% @questions.each do |question| %>
+    <div class="question_block">
+      <div>
+        <h2>Question:</h2>
+        <h4>Question Title:</h4>
+        <h3> <a href= "questions/<%= question.id %>" > <%= question.title %></a></h5>
+        <h4> Question Description:</h4>
+        <p><%= question.description %></p>
+        <h4>Who asked this Question:</h4>
+        <p><%= question.user.name %></p>
+          </div>
+          <a href="questions/<%= question.id %>/answers/new">ADD an answer</a>
+        <% question.answers.each do |answer| %>
+          <div class="answer">
+          <h2>Answers:</h2>
+            <div>
+              <li>  <%= answer.user.name %></li>
+              <li> Answer: <%= answer.answer %></li>
+            </div>
+
+
+          </div>
+          <% end %>
+    </div>
+  <% end %>
+
+</div>

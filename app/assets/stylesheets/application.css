@@ -14,7 +14,30 @@
  *= require_self
  */
 
+h1{
+  font-size: 65px ;
+  text-align: center;
+}
+.container{
+ margin-left: auto;
+ margin-right: auto;
+ width: 750px;
+  font-family: Helvetica;
+}
+
+
 .question_block {
-  background-color: blue;
+  background-color: #eaeaea;
+  padding:20px 20px 20px 20px;
+  margin: 20px 20px 20px 20px;
+}
+
+.answer{
+  padding: 20px 20px 20px 20px;
+  background-color: White;
+}
+
+.answer_info{
+
 
 }

@@ -1,4 +1,8 @@
-class QuestionsController < ActionController::Base
+class QuestionsController < ApplicationController
+  def current_user_id
+    1
+  end
+
   def index
     @questions = Question.all.order(created_at: :desc)
   end
@@ -13,7 +17,13 @@ class QuestionsController < ActionController::Base
   end
 
   def create
-
+    @question = Question.new(question_params)
+    @question.user_id = current_user_id
+    if @question.save
+      redirect_to @question, notice: 'Question was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
@@ -25,6 +35,10 @@ class QuestionsController < ActionController::Base
   end
 
   def new
+    @question = Question.new
+  end
 
+  def question_params
+    params.require(:question).permit(:title, :description)
   end
 end

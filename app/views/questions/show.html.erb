@@ -1,1 +1,11 @@
-hello
+<div>
+<h4>Title: <%= @question.title %> </h4>
+<h4>Desciption: <%= @question.description %></h4>
+<h4>User who asked: <%= @question.user.name %></h4>
+  <h1><% @question.answers.each do |answer| %></h4>
+<div>
+  <li> The user who answered the question is: <%= answer.user.name %></li>
+  <li> Answer: <%= answer.answer %></li>
+</div>
+<% end %>
+</div>
