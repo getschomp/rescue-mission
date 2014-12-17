@@ -1,11 +1,31 @@
 <div>
-<h4>Title: <%= @question.title %> </h4>
-<h4>Desciption: <%= @question.description %></h4>
-<h4>User who asked: <%= @question.user.name %></h4>
+  <h2>A question by: <%= @question.user.email %></h2>
+
+  <h4>Title: <%= @question.title %> </h4>
+  <h4>Desciption: <%= @question.description %></h4>
+  <h4>User who asked: <%= @question.user.email %></h4>
   <h1><% @question.answers.each do |answer| %></h4>
-<div>
-  <li> The user who answered the question is: <%= answer.user.name %></li>
-  <li> Answer: <%= answer.answer %></li>
+  <div>
+    <p> The user who answered the question is: <%= answer.user.email %></p>
+    <p> Answer: <%= answer.answer %></p>
+  </div>
+  <% end %>
+  </div>
+
+<% if current_user %>
+<div class="n">
+  <a href = "/questions/<%= @question.id %>/answers/new" > Answer </a>
 </div>
+  <%if current_user.id == @question.user_id %>
+
+      <div class="n">
+        <%= link_to 'Delete', @question,
+        method: :delete,
+        data:{ confirm: 'Are you sure?' } %>
+      </div>
+
+      <div class="n">
+        <%= link_to 'Edit', edit_question_path(@question) %>
+      </div>
+    <% end %>
 <% end %>
-</div>
