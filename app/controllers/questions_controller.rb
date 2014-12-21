@@ -1,9 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:destroy, :delete, :new, :create, :edit, :update]
 
-  def current_user_id
-    User.first.id
-  end
 
   def index
     @questions = Question.all.order(created_at: :desc)

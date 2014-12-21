@@ -1,7 +1,4 @@
 class AnswersController < ApplicationController
-  def current_user_id
-    1
-  end
 
   def new
     @question = Question.find(params[:question_id])
