@@ -41,5 +41,7 @@ gem 'devise'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'pry-rails'
+  gem 'launchy'
   gem 'factory_girl_rails'
 end
