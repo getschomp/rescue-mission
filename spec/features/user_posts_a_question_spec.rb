@@ -14,7 +14,6 @@ feature "User posts a question." do
   end
   scenario "Creates a question." do
     click_link 'Post a Question'
-    save_and_open_page
     title =  "a really awesome and really serious
     question that I'm using for a test. To short to short"
     question = "this is a test description
