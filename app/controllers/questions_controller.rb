@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:destroy, :delete, :new, :create, :edit, :update]
+  before_action :get_question, only: [:edit, :update, :destoy]
 
+  def get_question
+    @question = Question.find(params[:id])
+  end
 
   def index
     @questions = Question.all.order(created_at: :desc)
@@ -13,7 +17,6 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
     if current_user.id != @question.user_id
       redirect_to @question, notice: 'You did not create this question'
     end
@@ -30,7 +33,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
     @question.update(question_params)
     if  @question.save
       redirect_to @question, notice: 'question was sucessfully edited'
@@ -40,7 +42,6 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
     redirect_to questions_path
   end
@@ -50,6 +51,7 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  private
   def question_params
     params.require(:question).permit(:title, :description)
   end

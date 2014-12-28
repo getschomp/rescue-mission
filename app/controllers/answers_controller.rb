@@ -17,10 +17,7 @@ class AnswersController < ApplicationController
     end
   end
 
-
-  def destroy
-  endd
-
+  private
   def answer_params
     params.require(:answer).permit(:answer)
   end
