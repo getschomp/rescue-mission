@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
   def update
     @question.update(question_params)
     if  @question.save
-      redirect_to @question, notice: 'question was sucessfully edited'
+      redirect_to @question, notice: 'Question was sucessfully edited'
     else
       render :edit
     end
