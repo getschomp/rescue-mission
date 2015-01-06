@@ -1,4 +1,4 @@
-<img src="https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master">
+<img src="https://codeship.com/projects/8a4a6800-7767-0132-d292-465b99505fde/status?branch=master">
 
 ### Overview
 
