@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 module AuthenticationHelper
   def sign_in_as(user)
     visit new_user_session_path

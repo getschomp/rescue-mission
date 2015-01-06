@@ -1,3 +1,5 @@
+<img src="https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master">
+
 ### Overview
 
 You're going to be building a website like
